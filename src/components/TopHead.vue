@@ -2,7 +2,7 @@
     <!--顶部-->
     <div class="head">
         <p>Page one</p>
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <img src="../assets/white-right.png" alt="index"/>
     </div>
 </template>
 
@@ -32,9 +32,11 @@ export default {
     line-height: 44px;
     font-size: 17px;
 }
-.head > span{
+.head > img{
     position: absolute;
-    line-height: 44px;
-    right: 10%;
+    width: 20px;
+    padding: 11px 0;
+    top: 0;
+    right: 20px;
 }
 </style>

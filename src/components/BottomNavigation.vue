@@ -5,26 +5,26 @@
             
             <div class="bottom_item1">
                 <router-link to="/">
-                    <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                    <img src="../assets/purple-index.png" alt="index"/>
                     <p>首页</p>
                 </router-link>
             </div>
             
             <div class="bottom_item2">
                 <router-link to="/bookStore">
-                    <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+                    <img src="../assets/purple-bookstore.png" alt="index"/>
                     <p>书柜</p>
                 </router-link>
             </div>
             <div class="bottom_item3">
                 <router-link to="/bookDetails">
-                    <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+                    <img src="../assets/purple-index.png" alt="index"/>
                     <p>统计</p>
                 </router-link>
             </div>
             <div class="bottom_item4">
                 <router-link to="/">
-                    <span class="glyphicon glyphicon-tint" aria-hidden="true"></span>
+                    <img src="../assets/purple-my.png" alt="index"/>
                     <p>我</p>
                 </router-link>
             </div>
@@ -52,7 +52,8 @@ export default {
     display: flex;
     justify-content: space-between;
     height: 49px;
-    background-color: #E0BEFE;
+    background-color: #fff;
+    box-shadow: 0px 0px 30px #aaa;
 }
 .bottom_left{
     display: flex;
@@ -63,16 +64,16 @@ export default {
     width: 100%;
     text-align: center;
 }
-.bottom_left > div[class^='bottom_item']  span{
+.bottom_left > div[class^='bottom_item']  img{
     padding: 5px;
-    font-size: 20px;
+    height: 32px;
 }
 .bottom_left > div[class^='bottom_item']  p{
     font-size: 12px;
 }
-.bottom_left > div[class^='bottom_item']  span,
+.bottom_left > div[class^='bottom_item']  img,
 .bottom_left > div[class^='bottom_item']  p{
-    color: #fff;
+    color: #9013FE;
 }
 
 .bottom_right{

@@ -5,6 +5,7 @@ import HelloWorld from '@/components/HelloWorld'
 import bookDetails from '@/components/pages/bookDetails.vue'
 import bookStore from '@/components/pages/bookStore.vue'
 import homePage from '@/components/pages/homePage.vue'
+import editPage from '@/components/pages/editPage.vue'
 /* 组件 */
 import BottomNavigation from '../components/BottomNavigation'
 import TopHead from '../components/TopHead'
@@ -27,6 +28,11 @@ export default new Router({
       path: '/bookStore',
       name: 'bookStore',
       component: bookStore
+    },
+    {
+      path: '/editPage',
+      name: 'editPage',
+      component: editPage
     },
     {
       path: '/BottomNavigation',
