@@ -1,5 +1,6 @@
 <template>
-
+<div>
+<v-tophead v-if="showTopHead"/>
 
     <!--内容-->
     <div class="content">
@@ -40,16 +41,27 @@
         </div>
     </div>
 
-
+<v-bottomnavigation v-if="showBottomNavigation"/>
+</div>
 </template>
 
 <script>
-
+//导入组件
+import bottomnavigation from '.././BottomNavigation.vue';
+import tophead from '.././TopHead.vue';
+import modal from '.././Modal.vue';
 
 export default {
   name: 'homePage',
+  data () {
+    return {
+      showTopHead: true,
+      showBottomNavigation: true
+    }
+  },
   components:{
-    
+    'v-bottomnavigation':bottomnavigation,
+    'v-tophead':tophead,
   }
   
 }

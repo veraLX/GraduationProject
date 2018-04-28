@@ -23,7 +23,7 @@
                 </router-link>
             </div>
             <div class="bottom_item4">
-                <router-link to="/">
+                <router-link to="/loginPage">
                     <img src="../assets/purple-my.png" alt="index"/>
                     <p>我</p>
                 </router-link>

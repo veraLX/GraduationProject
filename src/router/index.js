@@ -6,6 +6,8 @@ import bookDetails from '@/components/pages/bookDetails.vue'
 import bookStore from '@/components/pages/bookStore.vue'
 import homePage from '@/components/pages/homePage.vue'
 import editPage from '@/components/pages/editPage.vue'
+import loginPage from '@/components/pages/loginPage.vue'
+import myPage from '@/components/pages/myPage.vue'
 /* 组件 */
 import BottomNavigation from '../components/BottomNavigation'
 import TopHead from '../components/TopHead'
@@ -35,14 +37,14 @@ export default new Router({
       component: editPage
     },
     {
-      path: '/BottomNavigation',
-      name: 'BottomNavigation',
-      component: BottomNavigation
+      path: '/loginPage',
+      name: 'loginPage',
+      component: loginPage
     },
     {
-      path: '/TopHead',
-      name: 'TopHead',
-      component: TopHead
+      path: '/myPage',
+      name: 'myPage',
+      component: myPage
     }
   ]
 })

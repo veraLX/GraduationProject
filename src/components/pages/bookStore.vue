@@ -1,4 +1,6 @@
 <template>
+<div>
+<v-tophead v-if="showTopHead"/>
     <!--内容-->
    <div class="content">
         <input type="text" name="lname" placeholder="搜索" />
@@ -54,18 +56,26 @@
 
     </div>
 
+<v-bottomnavigation v-if="showBottomNavigation"/>
+</div>
 </template>
 
 <script>
-import tophead from '../../components/TopHead.vue';
-import bottomnavigation from '../../components/BottomNavigation.vue';
+import bottomnavigation from '.././BottomNavigation.vue';
+import tophead from '.././TopHead.vue';
 
 
 export default {
   name: 'bookStore',
+  data () {
+    return {
+      showTopHead: true,
+      showBottomNavigation: true
+    }
+  },
   components:{
     'v-bottomnavigation':bottomnavigation,
-    'v-tophead':tophead
+    'v-tophead':tophead,
   }
   
 }

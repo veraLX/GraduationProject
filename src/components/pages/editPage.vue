@@ -1,4 +1,6 @@
 <template>
+<div>
+<v-tophead v-if="showTopHead"/>
 <!--内容-->
 <div class="edit-content">
     <div class="book-name-text">
@@ -9,13 +11,25 @@
         <textarea name="lname" placeholder="书名">dfafdafsaafdafsaafdafsaafdafsaafdafsaafdafsaafdafsavafdafsavvafdafsaafdafsaafdafsaafdafsaafdafsaafdafsaafdafsavafdafsavvafdafsaffdafsaafdafsaafdafsaafdafsaafdafsaafdafsaafdafsavafdafsavvafdafsafvfdafsaafdafsaafdafsaafdafsaafdafsaafdafsaafdafsavafdafsavvafdafsaffdafsafas</textarea>
     </div>   
 </div>
+
+<v-bottomnavigation v-if="showBottomNavigation"/>
+</div>
 </template>
 
 <script>
+import bottomnavigation from '.././BottomNavigation.vue';
+import tophead from '.././TopHead.vue';
 export default {
   name: 'editPage',
+  data () {
+    return {
+      showTopHead: true,
+      showBottomNavigation: true
+    }
+  },
   components:{
-    
+    'v-bottomnavigation':bottomnavigation,
+    'v-tophead':tophead,
   }
   
 }
