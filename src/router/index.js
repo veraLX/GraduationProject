@@ -18,7 +18,16 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'loginPage',
+      component: loginPage
+    },
+    {
+      path: '/homePage',
       name: 'homePage',
+      meta: {
+        // 添加该字段，表示进入这个路由是需要登录的
+         requireAuth: true,  
+        },
       component: homePage
     },
     {
