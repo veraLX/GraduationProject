@@ -83,7 +83,7 @@ export default {
     },
   methods:{
     login(){
-        this.$http.get('http://localhost:9090/loginlist?username='+this.username+'&password='+this.password).then((response) => { 
+        this.$http.get('http://localhost:3000/loginlist?username='+this.username+'&password='+this.password).then((response) => { 
             //这里在isLogin方法中先判断一下后台返回的是否为空值，如果不是然后提交后台返回的值。
             //注意这里是个难点，Vuex与Vue-Resource结合使用。 
             if(response.body != null & response.body.length > 0){ 

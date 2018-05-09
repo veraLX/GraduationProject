@@ -7,6 +7,10 @@
         {
             "username":"root",
             "password":"12345678"
+        },
+        {
+            "username":"aaa",
+            "password":"aaa"
         }
     ]
 }

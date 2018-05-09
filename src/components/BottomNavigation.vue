@@ -4,7 +4,7 @@
         <div class="bottom_left">
             
             <div class="bottom_item1">
-                <router-link to="/">
+                <router-link to="/homePage">
                     <img src="../assets/purple-index.png" alt="index"/>
                     <p>首页</p>
                 </router-link>

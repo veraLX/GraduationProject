@@ -1,12 +1,12 @@
 <template>
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" v-if="showModal">
       <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-footer">
-                <button type="button" class="btn-small">
+                <button @click="photopicture" type="button" class="btn-small">
                   <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
-                  <button>拍照识图</button>
+                  <button >感想</button>
                 </button>
                 <button type="button" class="btn-small">
                   <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
@@ -14,7 +14,7 @@
                 </button>
                 <button type="button" class="btn-small">
                   <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
-                  <button>感想</button>
+                  <button>拍照识图</button>
                 </button>
                 <button type="button" class="btn-small">
                   <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
@@ -29,7 +29,19 @@
 
 <script>
 export default {
-  name: 'Modal'
+  name: 'Modal',
+    data () {
+    return {
+      showModal: true
+      }
+    },
+  methods:{
+    photopicture(){
+        this.$router.push({ path: 'editPage' }) 
+        this.showModal=false
+        $('div[class*="modal-backdrop"]').css("display","none")
+    }
+  }
 }
 </script>
 
