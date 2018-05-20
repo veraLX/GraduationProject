@@ -7,7 +7,10 @@ import router from './router'
 import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
 import jQuery from 'jquery'
-import store from './vuex/store'
+import store from './vuex/store'//json
+import localstore from './store/index';//localstorage
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
 
 // import 'bootstrap/dist/css/bootstrap.min.css'
 // import 'bootstrap/dist/js/bootstrap.min.js'
@@ -19,12 +22,14 @@ import './styles/App.css';
 Vue.config.productionTip = false
 Vue.use(VueResource)
 Vue.use(VueRouter)
+Vue.use(MintUI)
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   store, 
+  localstore,
   components: { App },
   
   template: '<App/>',
@@ -55,11 +60,11 @@ router.beforeEach((to, from, next) => {
       next();
   }
 })
-
-
 function isEmptyObject(obj) {
   for (var key in obj) {
       return false;
   }
   return true;
 }
+
+

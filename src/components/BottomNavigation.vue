@@ -28,18 +28,54 @@
                     <p>我</p>
                 </router-link>
             </div>
-            <div class="bottom_right" data-toggle="modal" data-target="#myModal">
+            <!-- <div class="bottom_right"  data-toggle="modal" data-target="#myModal"> -->
+            <div class="bottom_right"  @click="toggleShowMenu">
                 <div>1</div>
             </div>
 
         </div>
 
+
+
+
+
+
+        <!-- <v-modal :myVisible= "myVisibleMsg" v-if = "visible"/> -->
+        <!-- <v-modal :myVisible = "lxVisible" v-if = "visible"/> -->
+        <v-modal  v-if = "visible"/>
     </div>
 </template>
 
 <script>
+//导入组件
+import modal from './Modal.vue';
 export default {
-  name: 'BottomNavigation'
+  name: 'BottomNavigation',
+  components:{
+    'v-modal':modal
+  },
+  data () {
+    return {
+    visible: false,  // 模态框是否打开，关闭
+    }
+  },
+  methods: {
+      // 打开类似模态框
+    // lxVisible (lxon) {
+    //     this.visible = lxon
+    // },
+    // myVisibleMsg:function(lxvisible) {
+    //     this.visible=lxvisible
+
+    // },
+    toggleShowMenu () {
+      console.log('我被点了')
+    //   this.visible = true
+        this.visible = true
+    // this.myVisibleMsg()
+    //   this.lxVisible()
+    }
+  }
 }
 </script>
 
@@ -102,4 +138,5 @@ export default {
 /* .modal-backdrop{
     display: none;
 } */
+
 </style>

@@ -8,6 +8,7 @@ import homePage from '@/components/pages/homePage.vue'
 import editPage from '@/components/pages/editPage.vue'
 import loginPage from '@/components/pages/loginPage.vue'
 import myPage from '@/components/pages/myPage.vue'
+import timePage from '@/components/pages/timePage.vue'
 /* 组件 */
 import BottomNavigation from '../components/BottomNavigation'
 import TopHead from '../components/TopHead'
@@ -16,10 +17,15 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    // {
+    //   path: '/',
+    //   name: 'loginPage',
+    //   component: loginPage
+    // },
     {
       path: '/',
-      name: 'loginPage',
-      component: loginPage
+      name: 'homePage',
+      component: homePage
     },
     {
       path: '/homePage',
@@ -54,6 +60,11 @@ export default new Router({
       path: '/myPage',
       name: 'myPage',
       component: myPage
+    },
+    {
+      path: '/timePage',
+      name: 'timePage',
+      component: timePage
     }
   ]
 })
