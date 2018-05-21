@@ -16,7 +16,7 @@
         <textarea v-model="content_area" v-on:click="selfAdaption" class="editpage-textarea" name="lname" placeholder="这里写下你的感想"></textarea>    
     </div> 
     <mt-datetime-picker ref="picker"  type="date" v-model="pickerDateValue"  @confirm="handleConfirmDate" 
-      :startDate = "new Date()"
+      :endDate = "new Date()"
       year-format="{value} 年"
       month-format="{value} 月"
       date-format="{value} 日">

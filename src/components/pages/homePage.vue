@@ -19,14 +19,17 @@
         <div class="event-list"  @click="editList(singleitem)" v-for="singleitem in item['list']" :key="singleitem.type">
             <div class="index_paragraph">
                 <h4>《{{singleitem.title}}》</h4>
-                <p><em>{{singleitem.date}}</em>{{singleitem.content}}</p>
+                <p>
+                    <!-- <em>{{singleitem.date}}</em> -->
+                    {{singleitem.content}}
+                </p>
             </div>
         </div>
     </div>
     <!-- new-tontent -->
 
     <mt-datetime-picker ref="picker"  type="date" v-model="pickerDateValue"  @confirm="handleConfirmDate" 
-    :startDate = "new Date()"
+    :endDate = "new Date()"
     year-format="{value} 年"
     month-format="{value} 月"
     date-format="{value} 日">

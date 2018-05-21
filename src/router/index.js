@@ -17,16 +17,16 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'loginPage',
-    //   component: loginPage
-    // },
     {
       path: '/',
-      name: 'homePage',
-      component: homePage
+      name: 'loginPage',
+      component: loginPage
     },
+    // {
+    //   path: '/',
+    //   name: 'homePage',
+    //   component: homePage
+    // },
     {
       path: '/homePage',
       name: 'homePage',

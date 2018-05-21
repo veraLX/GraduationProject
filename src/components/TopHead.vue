@@ -1,9 +1,9 @@
 <template>
     <!--顶部-->
     <div class="head">
-        <img src="../assets/white-left.png" alt="index"  v-if="showarrowleft"/>
+        <img src="../assets/white-left.png" alt="index"  v-if="showarrowleft" @click="returnback"/>
         <p>Page one</p>
-        <img src="../assets/white-right.png" alt="index" v-if="showarrowright"/>
+        <img src="../assets/white-right.png" alt="index" v-if="showarrowright" @click="goafter"/>
     </div>
 </template>
 
@@ -16,6 +16,14 @@ export default {
       showarrowright: true
       }
     },
+    methods:{
+        returnback (){
+            window.history.go(-1)
+        },
+        goafter (){
+            window.history.go(1)
+        }
+    }
 }
 </script>
 

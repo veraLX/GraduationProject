@@ -93,7 +93,7 @@ export default {
     color: #999;
     margin-top: 20px;
     padding: 5px 0;
-    border-bottom: 1px solid #ccc;
+    /* border-bottom: 1px solid #ccc; */
     margin: 0;
 }
 
@@ -101,7 +101,7 @@ export default {
 .index_paragraph{
     margin-top: 5px;
     padding-bottom: 5px;
-    border-bottom: 1px solid #eee;
+    /* border-bottom: 1px solid #eee; */
 }
 .index_paragraph > h4{
     font-size: 14px;

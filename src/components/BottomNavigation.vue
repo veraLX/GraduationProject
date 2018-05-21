@@ -18,8 +18,8 @@
             </div>
             <div class="bottom_item3">
                 <router-link to="/bookDetails">
-                    <img src="../assets/purple-index.png" alt="index"/>
-                    <p>统计</p>
+                    <img src="../assets/purple-search.png" alt="index"/>
+                    <p>搜索</p>
                 </router-link>
             </div>
             <div class="bottom_item4">
@@ -30,7 +30,7 @@
             </div>
             <!-- <div class="bottom_right"  data-toggle="modal" data-target="#myModal"> -->
             <div class="bottom_right"  @click="toggleShowMenu">
-                <div>1</div>
+                <div><img src="../assets/white-3d-logo.png" alt="index"/></div>
             </div>
 
         </div>
@@ -134,6 +134,9 @@ export default {
     background: -moz-linear-gradient(left bottom,#C32AFF,#9013FE);
     background: linear-gradient(left bottom,#C32AFF,#9013FE);
     box-shadow: 0px 4px 10px #aaa;
+}
+.bottom_right > div > img{
+    height: 60px;
 }
 /* .modal-backdrop{
     display: none;

@@ -7,19 +7,23 @@
             </div>
             <div class="bottombutton-footer" v-if = "visible">
                 <button @click="thought" type="button" class="btn-small">
-                  <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
-                  <button >书架</button>
+                  <img src="../assets/white-thought.png" alt="index"/>
+                  <!-- <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> -->
+                  <button >感想</button>
+                </button>
+                <button @click="pickthought" type="button" class="btn-small">
+                  <img src="../assets/white-page.png" alt="index"/>
+                  <!-- <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> -->
+                  <button>摘录</button>
                 </button>
                 <button @click="photopicture" type="button" class="btn-small">
-                  <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
-                  <button>感想</button>
+                  <img src="../assets/white-photo.png" alt="index"/>
+                  <!-- <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> -->
+                  <button>拍照</button>
                 </button>
-                <button @click="timepage" type="button" class="btn-small">
-                  <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
-                  <button>计时</button>
-                </button>
-                <button type="button" class="btn-small">
-                  <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                <button @click="page" type="button" class="btn-small">
+                  <img src="../assets/white-index.png" alt="index"/>
+                  <!-- <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> -->
                   <button>页码</button>
                 </button>
             </div>
@@ -57,23 +61,22 @@ export default {
       },
       thought(){
    
-        this.$router.push({ path: 'bookStore' }) 
+        this.$router.push({ path: 'editPage' }) 
  
       },
-      timepage(){
+      pickthought(){
 
         this.$router.push({ path: 'timePage' }) 
        
       },
-    photopicture(){
-        // $('#myModal').modal('hide')
-        // $('div[class*="bottombutton-backdrop"]').css("display","none")
-        // this.$emit('update:myVisible', !this.myVisible)
-        //  this.$emit('myVisible',visible)
+      photopicture(){
+        this.$router.push({ path: 'timePage' }) 
+      },
+      page(){
+        // MessageBox.prompt('Please tell me your name').then(({ value1 , value2 , action }) => {
 
-        this.$router.push({ path: 'editPage' }) 
-       
-    },
+        // });
+      }
     // toggleShow () {
     // let target = this.$refs.barPart
     // let test = target.classList.contains('togglehide')
@@ -138,6 +141,9 @@ export default {
 .bottombutton-footer > button{
     display: block;
     margin-bottom: 25px;
+}
+.bottombutton-footer > button > img{
+    height: 25px
 }
 .btn-large,.btn-small{
     border: none;
