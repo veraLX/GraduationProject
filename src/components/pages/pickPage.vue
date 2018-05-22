@@ -14,7 +14,7 @@
         <!-- <div class="timePicker"><input style="border: 1px solid #8391a5;" type="text" v-model= "pickerFormateValue" @mousedown="selectDate"></div> -->
     </div>
     <div class="book-thought">
-        <textarea rows="40" v-model="content_area" v-on:click="selfAdaption" class="editpage-textarea" name="lname" placeholder="这里写下你的感想"></textarea>    
+        <textarea rows="40" v-model="content_area" v-on:click="selfAdaption" class="editpage-textarea" name="lname" placeholder="本书摘录"></textarea>    
     </div> 
     <mt-datetime-picker ref="picker"  type="date" v-model="pickerDateValue"  @confirm="handleConfirmDate" 
       :endDate = "new Date()"
@@ -41,7 +41,7 @@ export default {
       showBottomNavigation: true,
       title_area:"",
       content_area:"",
-      type_area:"[感想]",
+      type_area:"[摘录]",
       visible:false,
       pickerDateValue: '',//mint-ui组件选择的时间
       pickerFormateValue: '', // 当前这个项目的消费时间，2018-05-20
@@ -98,7 +98,7 @@ export default {
             localStorage.removeItem('editItem')
             this.title_area = ''
             this.content_area = ''
-            this.type_area = '[感想]'
+            this.type_area = '[摘录]'
             this.pickerFormateValue = this.setDateFormate(new Date())//time
             // this.pickerFormateValue = ''
             // 判断月份字段是否已经存在
@@ -129,7 +129,7 @@ export default {
         this.pickerFormateValue = this.setDateFormate(new Date())//time
         this.title_area=""
         this.content_area=""
-        this.type_area = '[感想]'
+        this.type_area = '[摘录]'
       }
   },
   beforeDestroy () {

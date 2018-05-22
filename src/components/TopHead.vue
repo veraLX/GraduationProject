@@ -3,7 +3,7 @@
     <div class="head">
         <img src="../assets/white-left.png" alt="index"  v-if="showarrowleft" @click="returnback"/>
         <p>Page one</p>
-        <img src="../assets/white-right.png" alt="index" v-if="showarrowright" @click="goafter"/>
+        <!-- <img src="../assets/white-right.png" alt="index" v-if="showarrowright" @click="goafter"/> -->
     </div>
 </template>
 

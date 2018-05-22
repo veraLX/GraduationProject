@@ -8,6 +8,8 @@ import homePage from '@/components/pages/homePage.vue'
 import editPage from '@/components/pages/editPage.vue'
 import loginPage from '@/components/pages/loginPage.vue'
 import myPage from '@/components/pages/myPage.vue'
+import pickPage from '@/components/pages/pickPage.vue'
+import pageNumberPage from '@/components/pages/pageNumberPage.vue'
 import timePage from '@/components/pages/timePage.vue'
 /* 组件 */
 import BottomNavigation from '../components/BottomNavigation'
@@ -50,6 +52,16 @@ export default new Router({
       path: '/editPage',
       name: 'editPage',
       component: editPage
+    },
+    {
+      path: '/pickPage',
+      name: 'pickPage',
+      component: pickPage
+    },
+    {
+      path: '/pageNumberPage',
+      name: 'pageNumberPage',
+      component: pageNumberPage
     },
     {
       path: '/loginPage',

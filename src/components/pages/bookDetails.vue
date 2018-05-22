@@ -74,8 +74,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="less">
+@import "../../assets/less/index.less";
 /* 内容 */
 .content{
     margin: 44px 5% 60px 5%;
@@ -109,7 +109,7 @@ export default {
     margin: 0;
 }
 .index_paragraph > p > em{
-    color: #9013fe;
+    color: @bgDeepColor;
     padding-right: 5px;
 }
 

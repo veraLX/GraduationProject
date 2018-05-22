@@ -66,7 +66,7 @@ export default {
       },
       pickthought(){
 
-        this.$router.push({ path: 'timePage' }) 
+        this.$router.push({ path: 'pickPage' }) 
        
       },
       photopicture(){
@@ -74,7 +74,7 @@ export default {
       },
       page(){
         // MessageBox.prompt('Please tell me your name').then(({ value1 , value2 , action }) => {
-
+        this.$router.push({ path: 'pageNumberPage' }) 
         // });
       }
     // toggleShow () {
@@ -104,7 +104,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
+@import "../assets/less/index.less";
 /*模态框*/
 .bottombutton-dialog{
     width: 100%;
@@ -168,7 +169,7 @@ export default {
     border-radius: 70px;  
     line-height: 70px;  
     font-size: 34px; 
-    background-color: #9013FE;
+    background-color: @bgDeepColor;
 }
 .btn-small{
     width: 50px;
@@ -176,7 +177,7 @@ export default {
     border-radius: 50px;
     line-height: 50px;
     font-size: 20px;
-    background-color: #C32AFF;
+    background-color: @bgLightColor;
 }
 .btn-large > button{ 
     top: -70px;   

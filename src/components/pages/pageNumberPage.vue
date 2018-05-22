@@ -13,9 +13,13 @@
         <div class="timePicker"><input type="text" v-model= "pickerFormateValue" @confirm= "handleConfirmDate" @mousedown= "selectDate"></div>
         <!-- <div class="timePicker"><input style="border: 1px solid #8391a5;" type="text" v-model= "pickerFormateValue" @mousedown="selectDate"></div> -->
     </div>
-    <div class="book-thought">
-        <textarea rows="40" v-model="content_area" v-on:click="selfAdaption" class="editpage-textarea" name="lname" placeholder="这里写下你的感想"></textarea>    
-    </div> 
+    <!-- <div class="book-thought">
+        <textarea rows="40" v-model="content_area" v-on:click="selfAdaption" class="editpage-textarea" name="lname" placeholder="本书摘录"></textarea>    
+    </div>  -->
+    <div class="book-page">
+        <label>今天读到了这一页</label>
+        <input v-model="content_area" type="text" name="lname" placeholder=" " />
+    </div>
     <mt-datetime-picker ref="picker"  type="date" v-model="pickerDateValue"  @confirm="handleConfirmDate" 
       :endDate = "new Date()"
       year-format="{value} 年"
@@ -41,7 +45,7 @@ export default {
       showBottomNavigation: true,
       title_area:"",
       content_area:"",
-      type_area:"[感想]",
+      type_area:"[页码]",
       visible:false,
       pickerDateValue: '',//mint-ui组件选择的时间
       pickerFormateValue: '', // 当前这个项目的消费时间，2018-05-20
@@ -79,12 +83,15 @@ export default {
             let y = date.getFullYear()
             let m = (+date.getMonth()) + 1
             let d = date.getDate()
+            // let h = date.getHours()
+            // let mi = date.getMinutes()
             return (y + '-' + m + '-' + d)
+            // return (y + '-' + m + '-' + d +' ' + h + ':' + mi)
         },
         //设置提交的事件
         returnsavehome:function(){
             let consumeList = []
-            let newEditItem = {title: this.title_area, content: this.content_area, types: this.type_area, date: this.pickerFormateValue}
+            let newEditItem = {title: this.title_area, content: this.content_area , types: this.type_area, date: this.pickerFormateValue}
             let oldEditItem = JSON.parse(localStorage.getItem('editItem') || '[]')
             let editIndex = JSON.parse(localStorage.getItem('editIndex') || '[]')
             consumeList = JSON.parse(localStorage.getItem('list') || '[]')
@@ -98,7 +105,7 @@ export default {
             localStorage.removeItem('editItem')
             this.title_area = ''
             this.content_area = ''
-            this.type_area = '[感想]'
+            this.type_area = '[页码]'
             this.pickerFormateValue = this.setDateFormate(new Date())//time
             // this.pickerFormateValue = ''
             // 判断月份字段是否已经存在
@@ -129,7 +136,7 @@ export default {
         this.pickerFormateValue = this.setDateFormate(new Date())//time
         this.title_area=""
         this.content_area=""
-        this.type_area = '[感想]'
+        this.type_area = '[页码]'
       }
   },
   beforeDestroy () {
@@ -141,8 +148,11 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 @import "../../assets/less/index.less";
+/* body{
+    background-color: @bgLightColor!important;
+} */
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder{
     color:#ccc;
@@ -165,6 +175,7 @@ textarea:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 .edit-content > .book-name-text{
     border-bottom: 1px solid #eee;
     position: relative;
+    margin-top: 200px;
 }
 .edit-content > .book-name-text > span{
     position: absolute;
@@ -214,6 +225,26 @@ textarea:-ms-input-placeholder{  /* Internet Explorer 10-11 */
     padding-bottom: 0;
     color: purple!important;
     font-size: 12px;
+}
+.book-page{
+    text-align: center;
+}
+.book-page > label{
+    color: #777;
+    font-size: 15px;
+    margin-top: 20px;
+    
+
+}
+.book-page > input{
+    display: inherit;
+    border: 1px solid purple;
+    margin: 0 auto;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
 }
 
 </style>

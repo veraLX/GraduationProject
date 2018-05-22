@@ -8,7 +8,7 @@ import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
 import jQuery from 'jquery'
 import store from './vuex/store'//json
-import localstore from './store/index';//localstorage
+//import localstore from './store/index'//localstorage
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 
@@ -29,7 +29,7 @@ new Vue({
   el: '#app',
   router,
   store, 
-  localstore,
+//   localstore,
   components: { App },
   
   template: '<App/>',

@@ -105,7 +105,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
+@import "../../assets/less/index.less";
 
 .mypage-logo{
     width: 100%;
@@ -121,11 +122,11 @@ export default {
 .mypage-content{
     height: 100vh;
     width: 100%;
-    background: -webkit-linear-gradient(left bottom,#C32AFF,#9013FE);
-    background: -o-linear-gradient(left bottom,#C32AFF,#9013FE);
-    background: -mos-linear-gradient(left bottom,#C32AFF,#9013FE);
-    background: -moz-linear-gradient(left bottom,#C32AFF,#9013FE);
-    background: linear-gradient(left bottom,#C32AFF,#9013FE);
+    background: -webkit-linear-gradient(left bottom,@bgLightColor,@bgDeepColor);
+    background: -o-linear-gradient(left bottom,@bgLightColor,@bgDeepColor);
+    background: -mos-linear-gradient(left bottom,@bgLightColor,@bgDeepColor);
+    background: -moz-linear-gradient(left bottom,@bgLightColor,@bgDeepColor);
+    background: linear-gradient(left bottom,@bgLightColor,@bgDeepColor);
 }
 /* .mypage-login > h3{
     margin: 25px auto;
@@ -170,11 +171,11 @@ export default {
     font-size: 0.875rem;
     border: 1px solid #fff;
     color: #fff;
-    background: -webkit-linear-gradient(left bottom,#C32AFF,#9013FE);
-    background: -o-linear-gradient(left bottom,#C32AFF,#9013FE);
-    background: -mos-linear-gradient(left bottom,#C32AFF,#9013FE);
-    background: -moz-linear-gradient(left bottom,#C32AFF,#9013FE);
-    background: linear-gradient(left bottom,#C32AFF,#9013FE);
+    background: -webkit-linear-gradient(left bottom,@bgLightColor,@bgDeepColor);
+    background: -o-linear-gradient(left bottom,@bgLightColor,@bgDeepColor);
+    background: -mos-linear-gradient(left bottom,@bgLightColor,@bgDeepColor);
+    background: -moz-linear-gradient(left bottom,@bgLightColor,@bgDeepColor);
+    background: linear-gradient(left bottom,@bgLightColor,@bgDeepColor);
 }
 .mypage-register > span{
     text-align: center;

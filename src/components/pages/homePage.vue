@@ -16,11 +16,14 @@
         <!-- 时间 -->
         <div class="event-box-title"><span>{{item.date}}</span></div>
         <!-- 内容 -->
-        <div class="event-list"  @click="editList(singleitem)" v-for="singleitem in item['list']" :key="singleitem.type">
+        <div class="event-list" id="touchArea" @touchstart="showDeleteButton(singleitem)" @touchend="clearLoop"  @click="editList(singleitem)" v-for="singleitem in item['list']" :key="singleitem.type">
+            <!-- <div class="event-list" id="touchArea" @touchstart="showDeleteButton(singleitem)" @touchend="clearLoop" @click="editList(singleitem)" v-for="singleitem in item['list']" :key="singleitem.type"> -->
             <div class="index_paragraph">
-                <h4>《{{singleitem.title}}》</h4>
+                <h4>《{{singleitem.title}}》
+                  <!-- <img id="index_paragraph_delete" style="display:inline"  @click="deleteList($event)" src="../.././assets/purple-false.png" alt=""/> 删除按钮 -->
+                </h4>
                 <p>
-                    <!-- <em>{{singleitem.date}}</em> -->
+                    <em>{{singleitem.types}}</em>
                     {{singleitem.content}}
                 </p>
             </div>
@@ -49,6 +52,9 @@ import tophead from '.././TopHead.vue';
 import modal from '.././Modal.vue';
 //导入时间
 import {formatDate} from  '../.././assets/js/date.js';
+import { MessageBox } from 'mint-ui'
+
+
 
 export default {
   name: 'homePage',
@@ -83,23 +89,98 @@ export default {
     'v-tophead':tophead,
   },
   methods: {
+    showDeleteButton(item) {
+        clearInterval(this.Loop);//再次清空定时器，防止重复注册定时器
+        var This = this;
+        this.Loop=setTimeout(function(){
+            This.isDeleting = true;
+            console.log('长按事件触发');
+            //  MessageBox.confirm('是否删除本段记录', '提示');
+                MessageBox.confirm('', { 
+                    message: '是否删除本段记录', 
+                    title: '提示', 
+                    confirmButtonText: '确认', 
+                    cancelButtonText: '取消' 
+                    }).then(action => { 
+                        if (action == 'confirm') {     //确认的回调
+                            console.log(1);  
+                            $("#index_paragraph_delete").css("display","inline");  
+                            console.log(localStorage.key);  
+                            // let totalData = JSON.parse(localStorage.getItem('list') || '[]')  //这是所有的条目数据
+                            // // 点击进去之后就将数据传递到页面
+                            // this.editIndex = this.findIndex(totalData, item) // 自定义的一个方法，从所有的数据中获取到index值。
+                            // localStorage.removeItem('list', JSON.stringify(this.editIndex)) // 将index存储下来
+                            // localStorage.removeItem('llist', JSON.stringify(item))
+
+                             
+                    }
+                    }).catch(err => { 
+                        if (err == 'cancel') {     //取消的回调
+                            console.log(2);
+                    } 
+            });
+        },500);
+         
+    },
+    clearLoop() {
+        clearInterval(this.Loop);
+        console.log('清除定时器');
+        
+    },
     openMonth () {
       console.log('eee')
       this.$refs.picker.open()
     },
+    deleteList(event){
+        $(event.target).parents('#touchArea').hide();
+        console.log(event.target);
+    },
     editList (item) {
     //  点击进入编辑的页面，需要传递的参数比较多。那可不可以将这个需要用到的数据先存在一个内存里呢？
-    this.$router.replace({path: '/editPage'})
-    let totalData = JSON.parse(localStorage.getItem('list') || '[]')
-    // 点击进去之后就将数据传递到页面
-    this.editIndex = this.findIndex(totalData, item)
-    console.log(this.editIndex, '这是正在编辑的index', item, '正在编辑的项目')
-    localStorage.setItem('editIndex', JSON.stringify(this.editIndex))
-    localStorage.setItem('editItem', JSON.stringify(item))
+    console.log(item)
+    if(item.types=="[感想]"){
+      console.log(item.types)
+      item.types=="[感想]"
+      this.$router.replace({path: '/editPage'})
+      let totalData = JSON.parse(localStorage.getItem('list') || '[]')
+      // 点击进去之后就将数据传递到页面
+      this.editIndex = this.findIndex(totalData, item)
+      console.log(this.editIndex, '这是正在编辑的index', item, '正在编辑的项目')
+      localStorage.setItem('editIndex', JSON.stringify(this.editIndex))
+      localStorage.setItem('editItem', JSON.stringify(item))
+    }else if (item.types=="[摘录]"){
+      console.log(item.types)
+      this.$router.replace({path: '/pickPage'})
+      let totalData = JSON.parse(localStorage.getItem('list') || '[]')
+      // 点击进去之后就将数据传递到页面
+      this.editIndex = this.findIndex(totalData, item)
+      console.log(this.editIndex, '这是正在编辑的index', item, '正在编辑的项目')
+      localStorage.setItem('editIndex', JSON.stringify(this.editIndex))
+      localStorage.setItem('editItem', JSON.stringify(item))
+    }else if (item.types=="[页码]"){
+      console.log(item.types)
+      this.$router.replace({path: '/pageNumberPage'})
+      let totalData = JSON.parse(localStorage.getItem('list') || '[]')
+      // 点击进去之后就将数据传递到页面
+      this.editIndex = this.findIndex(totalData, item)
+      console.log(this.editIndex, '这是正在编辑的index', item, '正在编辑的项目')
+      localStorage.setItem('editIndex', JSON.stringify(this.editIndex))
+      localStorage.setItem('editItem', JSON.stringify(item))
+    }else{
+       console.log(item.types)
+      this.$router.replace({path: '/editPage'})
+      let totalData = JSON.parse(localStorage.getItem('list') || '[]')
+      // 点击进去之后就将数据传递到页面
+      this.editIndex = this.findIndex(totalData, item)
+      console.log(this.editIndex, '这是正在编辑的index', item, '正在编辑的项目')
+      localStorage.setItem('editIndex', JSON.stringify(this.editIndex))
+      localStorage.setItem('editItem', JSON.stringify(item))
+    }
+   
     },
-     findIndex (array, target) {
+    findIndex (array, target) {
       let index = array.findIndex((item) => {
-        return (item.date === target.date) && (item.title === target.title) && (item.content === target.content)
+        return (item.date === target.date) && (item.title === target.title) && (item.types === target.types)&& (item.content === target.content)
       })
       return index
     },
@@ -179,7 +260,7 @@ export default {
     },
     sortByfield (field) {
       return function (a, b) {
-        return a[field] - b[field]
+        return  b[field] - a[field]//与今日相近的时间在前
       }
     }
   },
@@ -190,22 +271,23 @@ export default {
       this.month = (nowTime.getMonth() + 1).toString()
       this.getConsumeList(this.year, this.month)  // 就是在这里获取本月的数据
     })
+    // this.longClick()
   }
 
   
 }
 </script>
 
-<style scoped>
-
+<style lang="less" scoped>
+@import "../../assets/less/index.less";
 /* 内容 */
 .content{
     margin: 44px 5% 60px 5%;
 }
 
 .timePicker {
-    border: 1px solid #9013fe;
-    /* background-color: #9013fe;
+    border: 1px solid @bgDeepColor;
+    /* background-color: @bgDeepColor;
     border-radius: 100px; */
     margin-top: 50px;
     margin-bottom: 10px;
@@ -291,8 +373,16 @@ export default {
     margin: 0;
 }
 .index_paragraph > p > em{
-    color: #9013fe;
+    color: @bgDeepColor;
     padding-right: 5px;
+}
+
+#index_paragraph_delete{
+    height: 18px;
+    float: right;
+    position: relative;
+    top: -3px;
+
 }
 
 </style>

@@ -81,7 +81,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
+@import "../../assets/less/index.less";
 
 /* 内容 */
 .content{
@@ -116,7 +117,7 @@ export default {
     margin: 0;
 }
 .index_paragraph > p > em{
-    color: #9013fe;
+    color: @bgDeepColor;
     padding-right: 5px;
 }
 
@@ -128,7 +129,7 @@ export default {
     margin: 10px 0;
     width: 100%;
     border-radius: 20px;
-    border: 1px solid #C32AFF;
+    border: 1px solid @bgLightColor;
     padding: 15px;
 }
 
@@ -149,7 +150,7 @@ export default {
 .book_content_item > div{
     height: 120px;
     width: 85px;
-    border: 1px solid #C32AFF;
+    border: 1px solid @bgLightColor;
 }
 .book_content_item > div > span{
     height: 120px;

@@ -3,34 +3,38 @@
     <div class="bottom">
         <div class="bottom_left">
             
-            <div class="bottom_item1">
-                <router-link to="/homePage">
-                    <img src="../assets/purple-index.png" alt="index"/>
+            <div class="bottom_item1" >
+                <router-link to="/homePage" @click.native="click1">
+                    <img id="bottom_item1" v-show="isActive1" src="../assets/purple-index.png" alt=""/>
+                    <img id="bottom_item1" v-show="!isActive1" src="../assets/purple-full-index.png" alt=""/>
                     <p>首页</p>
                 </router-link>
             </div>
             
-            <div class="bottom_item2">
-                <router-link to="/bookStore">
-                    <img src="../assets/purple-bookstore.png" alt="index"/>
+            <div class="bottom_item2" >
+                <router-link to="/bookStore" @click.native="click2">
+                    <img src="../assets/purple-bookstore.png"  v-show="isActive2" alt=""/>
+                    <img src="../assets/purple-full-bookstore.png" v-show="!isActive2" alt=""/>
                     <p>书柜</p>
                 </router-link>
             </div>
-            <div class="bottom_item3">
-                <router-link to="/bookDetails">
-                    <img src="../assets/purple-search.png" alt="index"/>
+            <div class="bottom_item3" >
+                <router-link to="/bookDetails" @click.native="click3">
+                    <img src="../assets/purple-search.png" v-show="isActive3" alt=""/>
+                    <img src="../assets/purple-full-search.png" v-show="!isActive3" alt=""/>
                     <p>搜索</p>
                 </router-link>
             </div>
-            <div class="bottom_item4">
-                <router-link to="/loginPage">
-                    <img src="../assets/purple-my.png" alt="index"/>
+            <div class="bottom_item4" >
+                <router-link to="/loginPage" @click.native="click4">
+                    <img src="../assets/purple-my.png" v-show="isActive4" alt=""/>
+                    <img src="../assets/purple-full-my.png" v-show="!isActive4" alt=""/>
                     <p>我</p>
                 </router-link>
             </div>
             <!-- <div class="bottom_right"  data-toggle="modal" data-target="#myModal"> -->
             <div class="bottom_right"  @click="toggleShowMenu">
-                <div><img src="../assets/white-3d-logo.png" alt="index"/></div>
+                <div><img src="../assets/white-3d-logo.png" alt=""/></div>
             </div>
 
         </div>
@@ -57,6 +61,10 @@ export default {
   data () {
     return {
     visible: false,  // 模态框是否打开，关闭
+    isActive1: true,
+    isActive2: true,
+    isActive3: true,
+    isActive4: true,
     }
   },
   methods: {
@@ -74,12 +82,48 @@ export default {
         this.visible = true
     // this.myVisibleMsg()
     //   this.lxVisible()
+    },
+    
+    click1(){
+        this.isActive1=false;
+        $(".bottom_item1").css('background-color', '#ddd');  
+        $(".bottom_item2").css('background-color', '#fff');  
+        $(".bottom_item3").css('background-color', '#fff');  
+        $(".bottom_item4").css('background-color', '#fff');   
+    },
+    click2(){
+        this.isActive2=false;
+        $(".bottom_item1").css('background-color', '#fff');  
+        $(".bottom_item2").css('background-color', '#ddd');  
+        $(".bottom_item3").css('background-color', '#fff');  
+        $(".bottom_item4").css('background-color', '#fff');   
+    },
+    click3(){
+        this.isActive3=false;
+        $(".bottom_item1").css('background-color', '#fff');  
+        $(".bottom_item2").css('background-color', '#fff');  
+        $(".bottom_item3").css('background-color', '#ddd');  
+        $(".bottom_item4").css('background-color', '#fff');   
+    },
+    click4(){
+        this.isActive4=false;
+        $(".bottom_item1").css('background-color', '#fff');  
+        $(".bottom_item2").css('background-color', '#fff');  
+        $(".bottom_item3").css('background-color', '#fff');  
+        $(".bottom_item4").css('background-color', '#ddd');   
     }
   }
 }
 </script>
 
-<style>
+<style lang="less">
+@import "../assets/less/index.less";
+/* a, button
+{
+
+-ms-touch-action: manipulation;   
+touch-action: manipulation;        
+} */
 /* 底部 */
 .bottom{
     position: fixed;
@@ -109,7 +153,7 @@ export default {
 }
 .bottom_left > div[class^='bottom_item']  img,
 .bottom_left > div[class^='bottom_item']  p{
-    color: #9013FE;
+    color: @bgDeepColor;
 }
 
 .bottom_right{
@@ -121,18 +165,18 @@ export default {
 .bottom_right > div{
     width: 70px;
     height: 70px;
-    /* background-color: #9013fe; */
+    /* background-color: @bgDeepColor; */
     border-radius: 70px;
     text-align: center;
     line-height: 70px;
     color: #fff;
     font-size: 34px;
     margin: 0 auto;
-    background: -webkit-linear-gradient(left bottom,#C32AFF,#9013FE);
-    background: -o-linear-gradient(left bottom,#C32AFF,#9013FE);
-    background: -mos-linear-gradient(left bottom,#C32AFF,#9013FE);
-    background: -moz-linear-gradient(left bottom,#C32AFF,#9013FE);
-    background: linear-gradient(left bottom,#C32AFF,#9013FE);
+    background: -webkit-linear-gradient(left bottom,@bgLightColor,@bgDeepColor);
+    background: -o-linear-gradient(left bottom,@bgLightColor,@bgDeepColor);
+    background: -mos-linear-gradient(left bottom,@bgLightColor,@bgDeepColor);
+    background: -moz-linear-gradient(left bottom,@bgLightColor,@bgDeepColor);
+    background: linear-gradient(left bottom,@bgLightColor,@bgDeepColor);
     box-shadow: 0px 4px 10px #aaa;
 }
 .bottom_right > div > img{

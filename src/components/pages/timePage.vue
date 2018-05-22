@@ -152,7 +152,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
+@import "../../assets/less/index.less";
 
 /* 内容 */
 .time_page_content{
