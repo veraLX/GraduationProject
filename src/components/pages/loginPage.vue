@@ -19,13 +19,13 @@
       <div class="mypage-button">
           <button @click="login">登录</button>
       </div> 
-      <!-- <div class="mypage-register">
+      <div class="mypage-register">
           <span v-on:click="ToRegister">没有账号？马上注册</span>
-      </div>  -->
+      </div> 
   </div>
 
   <!--注册-->
-  <!-- <div class="mypage-content" v-show="showRegister">
+  <div class="mypage-content" v-show="showRegister">
       <div class="mypage-logo">
           <img class="logo" src="../../assets/logoText-white.png">
       </div>
@@ -35,16 +35,16 @@
       <div class="mypage-password">
           <input type="password" name="password" placeholder="密码" v-model="newPassword"/>
       </div>  
-      <div class="mypage-showtip">
+      <!-- <div class="mypage-showtip">
         <p v-show="showTip">{{tip}}</p>
-      </div>
+      </div> -->
       <div class="mypage-button">
           <button v-on:click="register">注册</button>
       </div> 
       <div class="mypage-register">
           <span v-on:click="ToLogin">已有账号？马上登录</span>
       </div> 
-  </div> -->
+  </div>
 
 <v-bottomnavigation v-if="showBottomNavigation"/>
 </div>
@@ -98,7 +98,36 @@ export default {
             }
             
         }).then((error)=> this.error = error)
-    }
+    },
+    ToLogin(){
+        this.showLogin=true;
+        this.showRegister=false;
+    },
+    ToRegister(){
+        this.showLogin=false;
+        this.showRegister=true;
+    },
+    register(){
+        this.$http.post('http://localhost:3000/loginlist?username='+this.username+'&password='+this.password);
+        this.showLogin=true;
+        this.showRegister=false;
+        // this.$http.post('http://localhost:3000/loginlist?username='+this.username+'&password='+this.password).then((response) => { 
+        //     //这里在isLogin方法中先判断一下后台返回的是否为空值，如果不是然后提交后台返回的值。
+        //     //注意这里是个难点，Vuex与Vue-Resource结合使用。 
+        //     if(response.body != null & response.body.length > 0){ 
+        //         this.$store.commit('login',response.body[0]);
+        //         this.username=''
+        //         this.password= ''
+        //         this.$router.push({ path: 'homePage' }) 
+        //     }else{
+        //         this.tip='请输入正确的用户名和密码！！！';
+        //         this.username=''
+        //         this.password= ''
+        //     }
+            
+        // }).then((error)=> this.error = error)
+    },
+
   }
     
   
@@ -189,5 +218,7 @@ export default {
     font-size: 12px;
     color: #eee;
 }
-
+.mypage-register{
+    margin-top: 10px;
+}
 </style>

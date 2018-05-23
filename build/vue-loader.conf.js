@@ -10,6 +10,10 @@ module.exports = {
   loaders: utils.cssLoaders({
     sourceMap: sourceMapEnabled,
     extract: isProduction
+    // sourceMap: isProduction
+    //   ? config.build.productionSourceMap
+    //   : config.dev.cssSourceMap,
+    // extract: isProduction
   }),
   cssSourceMap: sourceMapEnabled,
   cacheBusting: config.dev.cacheBusting,
