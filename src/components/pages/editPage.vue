@@ -14,7 +14,7 @@
         <!-- <div class="timePicker"><input style="border: 1px solid #8391a5;" type="text" v-model= "pickerFormateValue" @mousedown="selectDate"></div> -->
     </div>
     <div class="book-thought">
-        <textarea rows="40" v-model="content_area" v-on:click="selfAdaption" class="editpage-textarea" name="lname" placeholder="这里写下你的感想"></textarea>    
+        <textarea rows="20" v-model="content_area" v-on:click="selfAdaption" class="editpage-textarea" name="lname" placeholder="这里写下你的感想"></textarea>    
     </div> 
     <mt-datetime-picker ref="picker"  type="date" v-model="pickerDateValue"  @confirm="handleConfirmDate" 
       :endDate = "new Date()"

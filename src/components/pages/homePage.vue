@@ -76,7 +76,6 @@ export default {
         }
       ],
       showMonthPicker: false,
-      pickerDateValue: '',
     //   getStr:"",
     //   title_area:""
     }

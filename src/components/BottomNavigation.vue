@@ -26,7 +26,7 @@
                 </router-link>
             </div>
             <div class="bottom_item4" >
-                <router-link to="/loginPage" @click.native="click4">
+                <router-link to="/myPage" @click.native="click4">
                     <img src="../assets/purple-my.png" v-show="isActive4" alt=""/>
                     <img src="../assets/purple-full-my.png" v-show="!isActive4" alt=""/>
                     <p>我</p>

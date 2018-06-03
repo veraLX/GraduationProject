@@ -4,7 +4,9 @@
 
     <!--内容-->
     <div class="content">
-        
+        <div class="mypage-register">
+          <span :title="message"></span>
+      </div> 
     </div>
 
 <v-bottomnavigation v-if="showBottomNavigation"/>
@@ -20,7 +22,8 @@ export default {
    data () {
     return {
       showTopHead: true,
-      showBottomNavigation: true
+      showBottomNavigation: true,
+      message: "",
     }
   },
   components:{
