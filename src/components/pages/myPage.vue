@@ -168,7 +168,12 @@ export default {
     width: 15px;
     height: auto;
 }
-.log-out-btn{
+.bottombutton-footer > .btn-small > button{
+    border: none;
+    background-color: #fff;
+    padding-left: 5px;
+}
+.log-out-btn,.log-out-btn > button{
   background-color: #eee!important;
 }
 .log-out{

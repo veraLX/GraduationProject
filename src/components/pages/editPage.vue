@@ -10,7 +10,7 @@
         <!-- <span v-on:click="returnsavehome" @keyup.enter= "returnsavehome" class="glyphicon glyphicon-ok" aria-hidden="true"></span> -->
     </div>
     <div class="book-time">
-        <div class="timePicker"><input type="text" v-model= "pickerFormateValue" @confirm= "handleConfirmDate" @mousedown= "selectDate"></div>
+        <div class="timePicker"><input type="text" readonly="true" v-model= "pickerFormateValue" @confirm= "handleConfirmDate" @mousedown= "selectDate"></div>
         <!-- <div class="timePicker"><input style="border: 1px solid #8391a5;" type="text" v-model= "pickerFormateValue" @mousedown="selectDate"></div> -->
     </div>
     <div class="book-thought">
@@ -215,5 +215,7 @@ textarea:-ms-input-placeholder{  /* Internet Explorer 10-11 */
     color: purple!important;
     font-size: 12px;
 }
-
+.book-time > .timePicker > input{
+    border: none;
+}
 </style>

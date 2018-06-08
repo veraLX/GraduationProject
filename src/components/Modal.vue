@@ -135,7 +135,7 @@ export default {
 .bottombutton-footer{
     position: absolute;
     right: calc(50% + 50px);
-    top: -900%;
+    top: -700%;
     border: none;
     padding-bottom: 0
 }
@@ -187,6 +187,8 @@ export default {
     top: -50px;
     font-size: 15px;
     color: #fff;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 .bottombutton-backdrop{
     background-color: #fff;
