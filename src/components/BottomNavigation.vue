@@ -19,7 +19,7 @@
                 </router-link>
             </div>
             <div class="bottom_item3" >
-                <router-link to="/bookDetails" @click.native="click3">
+                <router-link to="/infoPage" @click.native="click3">
                     <img src="../assets/purple-search.png" v-show="isActive3" alt=""/>
                     <img src="../assets/purple-full-search.png" v-show="!isActive3" alt=""/>
                     <p>搜索</p>

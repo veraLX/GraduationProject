@@ -9,7 +9,7 @@ import editPage from '@/components/pages/editPage.vue'
 import loginPage from '@/components/pages/loginPage.vue'
 import myPage from '@/components/pages/myPage.vue'
 import pickPage from '@/components/pages/pickPage.vue'
-// import infoPage from '@/components/pages/infoPage.vue'
+import infoPage from '@/components/pages/infoPage.vue'
 import pageNumberPage from '@/components/pages/pageNumberPage.vue'
 import timePage from '@/components/pages/timePage.vue'
 /* 组件 */
@@ -74,11 +74,11 @@ export default new Router({
       name: 'myPage',
       component: myPage
     },
-    // {
-    //   path: '/infoPage',
-    //   name: 'infoPage',
-    //   component: infoPage
-    // },
+    {
+      path: '/infoPage',
+      name: 'infoPage',
+      component: infoPage
+    },
     {
       path: '/timePage',
       name: 'timePage',
