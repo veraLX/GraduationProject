@@ -88,7 +88,7 @@ export default {
             let oldEditItem = JSON.parse(localStorage.getItem('editItem') || '[]')
             let editIndex = JSON.parse(localStorage.getItem('editIndex') || '[]')
             consumeList = JSON.parse(localStorage.getItem('list') || '[]')
-            console.log(consumeList, '当前的消费项目的list')
+            console.log(consumeList, '当前的项目的list')
             if (oldEditItem.length === 0) {
                 consumeList.push(newEditItem)
             } else {
